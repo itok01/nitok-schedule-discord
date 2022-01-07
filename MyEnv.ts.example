@@ -1,0 +1,9 @@
+type Env = {
+    discordWebhookUrl: string;
+};
+
+const MyEnv: Env = {
+    discordWebhookUrl: 'https://discord.com/api/webhooks/000/FOO'
+};
+
+export default MyEnv;
