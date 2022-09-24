@@ -4,6 +4,7 @@
     "cheerio": "^1.0.0-rc.10"
   },
   "devDependencies": {
-    "@google/clasp": "^2.4.1"
+    "@google/clasp": "^2.4.1",
+    "ts-node": "^10.9.1"
   }
 }
