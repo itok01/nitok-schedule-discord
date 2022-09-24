@@ -34,7 +34,7 @@ const main = () => {
     const oldWeeklySchedulePdfUrl = sheet.getRange('B1').getValue();
     const weeklyScheduleContents = UrlFetchApp.fetch(NITOK_WEEKLY_SCHEDULE_URL).getContentText();
     $ = Cheerio.load(weeklyScheduleContents);
-    const weeklySchedulePdfUrl = NITOK_SITE_ORIGIN + $('#aja_contents_detail > p > a').last().attr('href');
+    const weeklySchedulePdfUrl = NITOK_SITE_ORIGIN + $('#aja_contents_detail > p > a:nth-child(2)').last().attr('href');
 
     if (oldWeeklySchedulePdfUrl != weeklySchedulePdfUrl) {
         Logger.log(`New Weekly Schedule URL: ${weeklySchedulePdfUrl}`);
