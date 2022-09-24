@@ -4,7 +4,7 @@ import MyEnv from './MyEnv';
 
 const NITOK_SITE_ORIGIN = 'https://www.okinawa-ct.ac.jp';
 const NITOK_YEARLY_SCHEDULE_URL = 'https://www.okinawa-ct.ac.jp/detail.jsp?id=73493&menuid=14402&funcid=1';
-const NITOK_WEEKLY_SCHEDULE_URL = 'https://www.okinawa-ct.ac.jp/detail.jsp?id=75448&menuid=15310&funcid=1';
+const NITOK_WEEKLY_SCHEDULE_URL = 'https://www.okinawa-ct.ac.jp/detail.jsp?id=73419&menuid=14382&funcid=1';
 
 const main = () => {
     const spreadsheet = SpreadsheetApp.getActiveSpreadsheet();
