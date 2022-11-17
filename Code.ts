@@ -3,8 +3,8 @@ import * as Cheerio from 'cheerio';
 import MyEnv from './MyEnv';
 
 const NITOK_SITE_ORIGIN = 'https://www.okinawa-ct.ac.jp';
-const NITOK_YEARLY_SCHEDULE_URL = 'https://www.okinawa-ct.ac.jp/detail.jsp?id=73493&menuid=14402&funcid=1';
-const NITOK_WEEKLY_SCHEDULE_URL = 'https://www.okinawa-ct.ac.jp/detail.jsp?id=73419&menuid=14382&funcid=1';
+const NITOK_YEARLY_SCHEDULE_URL = 'https://www.okinawa-ct.ac.jp/campus_life/class/annualev/';
+const NITOK_WEEKLY_SCHEDULE_URL = 'https://www.okinawa-ct.ac.jp/campus_life/class/schedule/';
 
 const main = () => {
     const spreadsheet = SpreadsheetApp.getActiveSpreadsheet();
@@ -15,7 +15,7 @@ const main = () => {
 
     const yearlyScheduleContents = UrlFetchApp.fetch(NITOK_YEARLY_SCHEDULE_URL).getContentText();
     $ = Cheerio.load(yearlyScheduleContents);
-    const yearlySchedulePdfUrl = NITOK_SITE_ORIGIN + $('#aja_contents_detail > p:nth-child(2) > a').first().attr('href');
+    const yearlySchedulePdfUrl = NITOK_SITE_ORIGIN + $('#alpha > div > p > a').first().attr('href');
 
     if (oldYearlySchedulePdfUrl != yearlySchedulePdfUrl) {
         Logger.log(`New Yearly Schedule URL: ${yearlySchedulePdfUrl}`);
@@ -34,7 +34,7 @@ const main = () => {
     const oldWeeklySchedulePdfUrl = sheet.getRange('B1').getValue();
     const weeklyScheduleContents = UrlFetchApp.fetch(NITOK_WEEKLY_SCHEDULE_URL).getContentText();
     $ = Cheerio.load(weeklyScheduleContents);
-    const weeklySchedulePdfUrl = NITOK_SITE_ORIGIN + $('#aja_contents_detail > p > a:nth-child(2)').first().attr('href');
+    const weeklySchedulePdfUrl = NITOK_SITE_ORIGIN + $('ul.alpha_contents > li.item:nth-child(2) > p > a').first().attr('href');
 
     if (oldWeeklySchedulePdfUrl != weeklySchedulePdfUrl) {
         Logger.log(`New Weekly Schedule URL: ${weeklySchedulePdfUrl}`);
